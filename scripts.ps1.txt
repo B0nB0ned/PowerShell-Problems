@@ -1,0 +1,48 @@
+#
+#IDEAS:
+#Which user logged in last?
+#What IP does the system connect to when it first starts?
+#last log in of all wusers
+#creATES list of events to search through
+#move  relevant logs to the  \windows\Logs folder
+#download install and run wireshark
+#
+#
+#take pic on logon
+#
+#Tracking a USB flash drive connection
+
+When you connect a USB flash drive to your system, a number of Information and Verbose Level event records are generated in the Operational Log. These records will consist of the following Event IDs:
+
+    2003
+    2004
+    2006
+    2010
+    2100
+    2101
+    2105
+    2106
+
+#
+#
+#
+#
+#
+#
+
+# Windows PowerShell script for AD DS Deployment
+#
+
+Import-Module ADDSDeployment
+Install-ADDSForest `
+-CreateDnsDelegation:$false `
+-DatabasePath "C:\Windows\Logs\NTDS" `
+-DomainMode "WinThreshold" `
+-DomainName "allsafe.com" `
+-DomainNetbiosName "ALLSAFE" `
+-ForestMode "WinThreshold" `
+-InstallDns:$true `
+-LogPath "C:\Windows\Logs\NTDS" `
+-NoRebootOnCompletion:$false `
+-SysvolPath "C:\Windows\Logs\SYSVOL" `
+-Force:$true
